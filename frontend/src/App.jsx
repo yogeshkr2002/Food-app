@@ -14,9 +14,9 @@ import Products from "./pages/products/Products";
 import Profile from "./pages/profile/Profile";
 import Checkout from "./pages/checkout/Checkout";
 import CheckoutAddressPage from "./pages/checkoutAddress/CheckoutAddressPage";
+import OrderSuccess from "./pages/orderSuccess/OrderSuccess";
 
 import Payment from "./components/payment/Payment";
-import OrderSuccess from "./components/OrderSuccess";
 import PrivateRoute from "./components/PrivateRoute";
 import AddressManagement from "./components/addressManagement/AddressManagement";
 import PaymentMethodForm from "./components/paymentMethodForm/PaymentMethodForm";

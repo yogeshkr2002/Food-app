@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Header from "./header/Header";
-import "../styles/OrderSuccess.css";
+import Header from "../../components/header/Header";
+import "../../styles/OrderSuccess.css";
 
 function OrderSuccess() {
   const navigate = useNavigate();
