@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Header from "./Header";
-import PopularRestaurants from "./PopularRestaurants";
-import { useAuth } from "../context/AuthContext";
-import "../styles/Home.css";
+import Header from "../../components/Header";
+import PopularRestaurants from "../../components/PopularRestaurants";
+import { useAuth } from "../../context/AuthContext";
+import "../../styles/Home.css";
 
 function Home() {
   const [message, setMessage] = useState("");
