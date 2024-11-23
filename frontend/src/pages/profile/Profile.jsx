@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import PaymentCardModal from "./PaymentCardModal";
-import "../styles/Profile.css";
+import PaymentCardModal from "../../components/PaymentCardModal";
+import "../../styles/Profile.css";
 
 const Profile = () => {
   const [user, setUser] = useState(null);

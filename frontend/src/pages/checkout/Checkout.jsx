@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import AddressModal from "./AddressModal";
-import Header from "./Header";
-import { useCart } from "../context/CartContext";
-import "../styles/Checkout.css";
+import AddressModal from "../../components/AddressModal";
+import { useCart } from "../../context/CartContext";
+import "../../styles/Checkout.css";
 
 function Checkout() {
   const [addresses, setAddresses] = useState([]);
