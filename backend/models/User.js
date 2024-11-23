@@ -51,4 +51,13 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
+// Remove the existing collection and its indexes before creating a new model
+mongoose.connection.on("connected", async () => {
+  try {
+    await mongoose.connection.db.collection("users").drop();
+  } catch (error) {
+    // Collection might not exist, which is fine
+  }
+});
+
 module.exports = mongoose.model("User", userSchema);

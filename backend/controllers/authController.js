@@ -12,16 +12,19 @@ const generateToken = (id) => {
 // Register user
 const register = async (req, res) => {
   try {
+    console.log("Registration request received:", req.body);
     const { name, phone, email, password } = req.body;
 
     // Check if user exists
     const userExists = await User.findOne({ email });
     if (userExists) {
+      console.log("User already exists:", email);
       return res.status(400).json({ message: "User already exists" });
     }
 
     // Validate phone number
     if (!/^\d{10}$/.test(phone)) {
+      console.log("Invalid phone number:", phone);
       return res
         .status(400)
         .json({ message: "Phone number must be 10 digits" });
@@ -29,6 +32,7 @@ const register = async (req, res) => {
 
     // Validate password length
     if (password.length < 8) {
+      console.log("Password too short");
       return res
         .status(400)
         .json({ message: "Password must be at least 8 characters long" });
@@ -43,6 +47,7 @@ const register = async (req, res) => {
     });
 
     if (user) {
+      console.log("User created successfully:", user._id);
       res.status(201).json({
         _id: user._id,
         name: user.name,

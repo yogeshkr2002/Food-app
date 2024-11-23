@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import "../../styles/Auth.css";
 
@@ -15,15 +14,13 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        formData
-      );
-      login(response.data);
+      await login(formData);
       navigate("/home");
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      setError(err.message || "Login failed");
     }
   };
 
@@ -37,6 +34,7 @@ function Login() {
           placeholder="Email"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          required
         />
         <input
           type="password"
@@ -45,6 +43,7 @@ function Login() {
           onChange={(e) =>
             setFormData({ ...formData, password: e.target.value })
           }
+          required
         />
         <button type="submit">Login</button>
         <p>
