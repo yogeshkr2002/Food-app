@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Header from "./Header";
+import Header from "./header/Header";
 import "../styles/OrderSuccess.css";
 
 function OrderSuccess() {

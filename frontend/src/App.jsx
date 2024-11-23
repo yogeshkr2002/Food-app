@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
-import Layout from "./components/Layout";
+
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
@@ -14,11 +14,13 @@ import Products from "./pages/products/Products";
 import Profile from "./pages/profile/Profile";
 import Checkout from "./pages/checkout/Checkout";
 import CheckoutAddressPage from "./pages/checkoutAddress/CheckoutAddressPage";
-import Payment from "./components/Payment";
+
+import Payment from "./components/payment/Payment";
 import OrderSuccess from "./components/OrderSuccess";
 import PrivateRoute from "./components/PrivateRoute";
 import AddressManagement from "./components/addressManagement/AddressManagement";
-import PaymentMethodForm from "./components/PaymentMethodForm";
+import PaymentMethodForm from "./components/paymentMethodForm/PaymentMethodForm";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (

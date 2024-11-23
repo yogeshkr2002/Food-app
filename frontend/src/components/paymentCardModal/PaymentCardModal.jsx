@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/PaymentCardModal.css";
+import "../../styles/PaymentCardModal.css";
 
 const PaymentCardModal = ({ isOpen, onClose, onSubmit, editCard }) => {
   const [formData, setFormData] = useState({

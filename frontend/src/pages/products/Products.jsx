@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import axios from "axios";
-import Header from "../../components/Header";
-import PopularRestaurants from "../../components/PopularRestaurants";
-import CustomerReviews from "../../components/CustomerReviews";
+import Header from "../../components/header/Header";
+import PopularRestaurants from "../../components/popularRestaurants/PopularRestaurants";
+import CustomerReviews from "../../components/reviews/CustomerReviews";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import "../../styles/Products.css";

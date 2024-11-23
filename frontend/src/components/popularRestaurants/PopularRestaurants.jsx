@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useAuth } from "../context/AuthContext";
-import "../styles/PopularRestaurants.css";
+import { useAuth } from "../../context/AuthContext";
+import "../../styles/PopularRestaurants.css";
 
 function PopularRestaurants() {
   const navigate = useNavigate();

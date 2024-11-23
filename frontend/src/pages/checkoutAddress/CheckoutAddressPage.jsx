@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AddressModal from "../../components/addressModal/AddressModal";
-import Header from "../../components/Header";
+import Header from "../../components/header/Header";
 import "../../styles/CheckoutAddressPage.css";
 
 const CheckoutAddressPage = () => {

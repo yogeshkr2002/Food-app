@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import PaymentCardModal from "../../components/PaymentCardModal";
+import PaymentCardModal from "../../components/paymentCardModal/PaymentCardModal";
 import "../../styles/Profile.css";
 
 const Profile = () => {

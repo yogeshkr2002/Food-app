@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../styles/PopularCategories.css";
+import "../../styles/PopularCategories.css";
 
 function PopularCategories() {
   const navigate = useNavigate();

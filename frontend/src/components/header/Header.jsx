@@ -1,8 +1,8 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import { useCart } from "../context/CartContext";
-import "../styles/Header.css";
-import cartIcon from "../assets/cart-icon.png";
+import { useAuth } from "../../context/AuthContext";
+import { useCart } from "../../context/CartContext";
+import "../../styles/Header.css";
+import cartIcon from "../../assets/cart-icon.png";
 
 function Header() {
   const { logout } = useAuth();

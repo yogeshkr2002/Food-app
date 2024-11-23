@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import Header from "./Header";
-import "../styles/Payment.css";
+import { useCart } from "../../context/CartContext";
+import Header from "../header/Header";
+import "../../styles/Payment.css";
 
 function Payment() {
   const navigate = useNavigate();
