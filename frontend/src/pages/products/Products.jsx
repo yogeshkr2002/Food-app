@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import axios from "axios";
-import Header from "./Header";
-import PopularRestaurants from "./PopularRestaurants";
-import CustomerReviews from "./CustomerReviews";
-import { useAuth } from "../context/AuthContext";
-import { useCart } from "../context/CartContext";
-import "../styles/Products.css";
+import Header from "../../components/Header";
+import PopularRestaurants from "../../components/PopularRestaurants";
+import CustomerReviews from "../../components/CustomerReviews";
+import { useAuth } from "../../context/AuthContext";
+import { useCart } from "../../context/CartContext";
+import "../../styles/Products.css";
 
 function Products() {
   const [products, setProducts] = useState([]);

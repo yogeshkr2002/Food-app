@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import AddressModal from "./AddressModal";
-import Header from "./Header";
-import "../styles/CheckoutAddressPage.css";
+import AddressModal from "../../components/addressModal/AddressModal";
+import Header from "../../components/Header";
+import "../../styles/CheckoutAddressPage.css";
 
 const CheckoutAddressPage = () => {
   const [addresses, setAddresses] = useState([]);

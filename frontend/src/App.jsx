@@ -10,15 +10,15 @@ import Layout from "./components/Layout";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
-import Products from "./components/Products";
+import Products from "./pages/products/Products";
 import Profile from "./pages/profile/Profile";
 import Checkout from "./pages/checkout/Checkout";
+import CheckoutAddressPage from "./pages/checkoutAddress/CheckoutAddressPage";
 import Payment from "./components/Payment";
 import OrderSuccess from "./components/OrderSuccess";
 import PrivateRoute from "./components/PrivateRoute";
-import AddressManagement from "./components/AddressManagement";
+import AddressManagement from "./components/addressManagement/AddressManagement";
 import PaymentMethodForm from "./components/PaymentMethodForm";
-import CheckoutAddressPage from "./components/CheckoutAddressPage";
 
 function App() {
   return (

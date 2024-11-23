@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/AddressModal.css";
+import "../../styles/AddressModal.css";
 
 const AddressModal = ({ isOpen, onClose, address, onSubmit }) => {
   const [formData, setFormData] = useState({

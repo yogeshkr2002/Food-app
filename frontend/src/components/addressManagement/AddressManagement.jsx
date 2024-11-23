@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import AddressModal from "./AddressModal";
+import AddressModal from "../../components/addressModal/AddressModal";
 
 const AddressManagement = () => {
   const [addresses, setAddresses] = useState([]);

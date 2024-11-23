@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import AddressModal from "../../components/AddressModal";
+import AddressModal from "../../components/addressModal/AddressModal";
 import { useCart } from "../../context/CartContext";
 import "../../styles/Checkout.css";
 
