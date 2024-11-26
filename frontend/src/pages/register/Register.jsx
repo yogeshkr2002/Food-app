@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import "../../styles/Register.css";
+import "./register.css";
+import Footer from "../../components/footer/Footer";
+// import "../../styles/Register.css";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -50,85 +52,87 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <div className="register-form-container">
-        <h2 className="register-title">Register</h2>
-        {error && <p className="register-error">{error}</p>}
-
-        <form className="register-form" onSubmit={handleSubmit}>
-          <div className="register-input-group">
-            <div>
-              <label htmlFor="name" className="sr-only">
-                Full Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                className="register-input"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="phone" className="sr-only">
-                Phone Number
-              </label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                pattern="[0-9]{10}"
-                required
-                className="register-input"
-                placeholder="Phone Number (10 digits)"
-                value={formData.phone}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                className="register-input"
-                placeholder="Email address"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                required
-                minLength="8"
-                className="register-input"
-                placeholder="Password (min 8 characters)"
-                value={formData.password}
-                onChange={handleChange}
-              />
-            </div>
+    <div className="container">
+      <div className="registerContainer">
+        <div className="registerFormContainer">
+          <div className="logo11">
+            <img src="./image/Logo_1.png" alt="" className="logoImage1" />
           </div>
+          <div className="description1">
+            <h2>Welcome </h2>
+            <p>Today is a new day. It's your day. You shape it.</p>
+            <p>Sign in to start ordering.</p>
+          </div>
+          <form className="registerForm" onSubmit={handleSubmit}>
+            {error && <p>{error}</p>}
+            <label>Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              className="input1"
+              placeholder="eg. John A"
+              value={formData.name}
+              onChange={handleChange}
+            />
 
-          <button type="submit" className="register-button">
-            Register
-          </button>
-        </form>
+            <label>Phone Number</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              pattern="[0-9]{10}"
+              required
+              className="input1"
+              placeholder="Enter your 10 digit mobile number"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+
+            <label>Email address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="input1"
+              placeholder="Example@email.com"
+              value={formData.email}
+              onChange={handleChange}
+            />
+
+            <label>Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              minLength="8"
+              className="input1"
+              placeholder="At least 8 characters"
+              value={formData.password}
+              onChange={handleChange}
+            />
+
+            <button type="submit" className="signUpBtn">
+              Continue
+            </button>
+            <div className="signIn">
+              <span>
+                Already have an account?{" "}
+                <Link to="/login">
+                  <span style={{ color: "#fc8a06" }}>Sign in</span>
+                </Link>
+              </span>
+            </div>
+          </form>
+        </div>
+        <div className="imageContainer1">
+          <img src="./image/Art.jpg" alt="image" className="artImage1" />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

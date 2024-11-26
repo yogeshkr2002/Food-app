@@ -39,7 +39,7 @@ function Login() {
             <p>Sign in to start ordering.</p>
           </div>
           <form onSubmit={handleSubmit} className="loginForm">
-            {error && <div className="error">{error}</div>}
+            {error && <div>{error}</div>}
             <label>Email</label>
             <input
               className="input"
@@ -67,7 +67,10 @@ function Login() {
             </button>
             <div className="signUp">
               <span>
-                Don't you have an account? <Link to="/register">Sign up</Link>
+                Don't you have an account?{" "}
+                <Link to="/register">
+                  <span style={{ color: "#fc8a06" }}>Sign up</span>
+                </Link>
               </span>
             </div>
           </form>
