@@ -34,7 +34,7 @@ function Login() {
             <img src="./image/Logo_1.png" alt="" className="logoImage" />
           </div>
           <div className="description">
-            <h2>Welcome </h2>
+            <h2>Welcome Back 👋 </h2>
             <p>Today is a new day. It's your day. You shape it.</p>
             <p>Sign in to start ordering.</p>
           </div>

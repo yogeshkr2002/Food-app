@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header";
 import "../../styles/OrderSuccess.css";
+import Navbar from "../../components/navbar/Navbar";
 
 function OrderSuccess() {
   const navigate = useNavigate();
 
   return (
     <div>
+      <Navbar />
       <Header />
       <div className="order-success-container">
         <div className="success-content">

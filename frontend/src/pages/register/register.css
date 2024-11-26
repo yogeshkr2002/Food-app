@@ -35,17 +35,19 @@
 .description1 {
   width: 50%;
   height: 20%;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   /* border: 1px solid red; */
 }
 
 .description1 h2 {
   font-size: 22px;
-  /* margin-bottom: 10px; */
+  margin-bottom: 10px;
 }
 
 .description1 p {
   font-size: 14px;
+
   /* border: 1px solid red; */
 }
 

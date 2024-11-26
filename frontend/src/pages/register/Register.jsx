@@ -59,7 +59,7 @@ const Register = () => {
             <img src="./image/Logo_1.png" alt="" className="logoImage1" />
           </div>
           <div className="description1">
-            <h2>Welcome </h2>
+            <h2> Welcome 👋 </h2>
             <p>Today is a new day. It's your day. You shape it.</p>
             <p>Sign in to start ordering.</p>
           </div>

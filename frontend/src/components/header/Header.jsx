@@ -1,12 +1,9 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { useCart } from "../../context/CartContext";
-import "../../styles/Header.css";
-import cartIcon from "../../assets/cart-icon.png";
+import "./header.css";
 
 function Header() {
   const { logout } = useAuth();
-  const { toggleCart, cartItems } = useCart();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -15,47 +12,45 @@ function Header() {
     navigate("/login");
   };
 
-  const handleCartClick = () => {
-    if (location.pathname !== "/products") {
-      navigate("/products");
-    }
-    toggleCart();
-  };
-
-  const cartItemCount = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
-
   return (
     <header className="header">
-      <nav>
-        <Link
-          to="/home"
-          className={location.pathname === "/home" ? "active" : ""}
-        >
-          Home
-        </Link>
-        <Link
-          to="/products"
-          className={location.pathname === "/products" ? "active" : ""}
-        >
-          Products
-        </Link>
-        <Link
-          to="/profile"
-          className={location.pathname === "/profile" ? "active" : ""}
-        >
-          Profile
-        </Link>
-        <button className="cart-button" onClick={handleCartClick}>
-          <img src={cartIcon} alt="Cart" className="cart-icon" />
-          {cartItemCount > 0 && (
-            <span className="cart-count">{cartItemCount}</span>
-          )}
-        </button>
-        <button onClick={handleLogout}>Logout</button>
-      </nav>
+      <div className="headerContainer">
+        <div className="headerItem1">
+          <img src="./image/Logo_1.png" alt="logo" className="homeOrderLogo" />
+        </div>
+        <div className="headerItem2">
+          <ul>
+            <li>
+              <Link
+                to="/home"
+                className={location.pathname === "/home" ? "active" : ""}
+              >
+                Home
+              </Link>
+            </li>
+            <li>Browse Menu</li>
+            <li>Special Offers</li>
+            <li>
+              <Link
+                to="/products"
+                className={location.pathname === "/products" ? "active" : ""}
+              >
+                Restaurants
+              </Link>
+            </li>
+            <li>Track Order</li>
+          </ul>
+        </div>
+        <div className="headerItem3">
+          <Link
+            to="/profile"
+            className={location.pathname === "/profile" ? "active" : ""}
+          >
+            Profile
+          </Link>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      </div>
     </header>
   );
 }

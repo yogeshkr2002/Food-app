@@ -4,6 +4,7 @@ import axios from "axios";
 import AddressModal from "../../components/addressModal/AddressModal";
 import Header from "../../components/header/Header";
 import "../../styles/CheckoutAddressPage.css";
+import Navbar from "../../components/navbar/Navbar";
 
 const CheckoutAddressPage = () => {
   const [addresses, setAddresses] = useState([]);
@@ -56,6 +57,7 @@ const CheckoutAddressPage = () => {
 
   return (
     <div>
+      <Navbar />
       <Header />
       <div className="checkout-address-page">
         <div className="address-page-header">

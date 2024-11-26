@@ -3,7 +3,9 @@ import axios from "axios";
 import Header from "../../components/header/Header";
 import PopularRestaurants from "../../components/popularRestaurants/PopularRestaurants";
 import { useAuth } from "../../context/AuthContext";
-import "../../styles/Home.css";
+import "./home.css";
+import Navbar from "../../components/navbar/Navbar";
+// import "../../styles/Home.css";
 
 function Home() {
   const [message, setMessage] = useState("");
@@ -26,12 +28,18 @@ function Home() {
 
   return (
     <div>
-      <Header />
+      <div className="homeContainer">
+        <Navbar />
+        <Header />
+      </div>
+
+      {/* ------------------------ */}
+      {/* <Header />
       <div className="content">
         <h1>Welcome to Home Page</h1>
         <p>{message}</p>
         <PopularRestaurants />
-      </div>
+      </div> */}
     </div>
   );
 }

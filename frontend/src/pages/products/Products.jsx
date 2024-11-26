@@ -7,6 +7,7 @@ import CustomerReviews from "../../components/reviews/CustomerReviews";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import "../../styles/Products.css";
+import Navbar from "../../components/navbar/Navbar";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -65,6 +66,7 @@ function Products() {
   if (loading) {
     return (
       <div>
+        <Navbar />
         <Header />
         <div className="products-container">
           <div className="loading">Loading products...</div>
@@ -75,6 +77,7 @@ function Products() {
 
   return (
     <div>
+      <Navbar />
       <Header />
       <div className={`products-container ${isCartOpen ? "with-cart" : ""}`}>
         <div className="main-content">

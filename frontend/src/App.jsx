@@ -20,7 +20,6 @@ import Payment from "./components/payment/Payment";
 import PrivateRoute from "./components/PrivateRoute";
 import AddressManagement from "./components/addressManagement/AddressManagement";
 import PaymentMethodForm from "./components/paymentMethodForm/PaymentMethodForm";
-import Layout from "./components/layout/Layout";
 
 function App() {
   return (
@@ -34,9 +33,7 @@ function App() {
               path="/home"
               element={
                 <PrivateRoute>
-                  <Layout>
-                    <Home />
-                  </Layout>
+                  <Home />
                 </PrivateRoute>
               }
             />
@@ -44,9 +41,7 @@ function App() {
               path="/products"
               element={
                 <PrivateRoute>
-                  <Layout>
-                    <Products />
-                  </Layout>
+                  <Products />
                 </PrivateRoute>
               }
             />
@@ -54,9 +49,7 @@ function App() {
               path="/profile"
               element={
                 <PrivateRoute>
-                  <Layout>
-                    <Profile />
-                  </Layout>
+                  <Profile />
                 </PrivateRoute>
               }
             />
@@ -64,9 +57,7 @@ function App() {
               path="/checkout"
               element={
                 <PrivateRoute>
-                  <Layout>
-                    <Checkout />
-                  </Layout>
+                  <Checkout />
                 </PrivateRoute>
               }
             />
@@ -74,9 +65,7 @@ function App() {
               path="/payment"
               element={
                 <PrivateRoute>
-                  <Layout>
-                    <Payment />
-                  </Layout>
+                  <Payment />
                 </PrivateRoute>
               }
             />
@@ -84,9 +73,7 @@ function App() {
               path="/order-success"
               element={
                 <PrivateRoute>
-                  <Layout>
-                    <OrderSuccess />
-                  </Layout>
+                  <OrderSuccess />
                 </PrivateRoute>
               }
             />
@@ -94,9 +81,7 @@ function App() {
               path="/addresses"
               element={
                 <PrivateRoute>
-                  <Layout>
-                    <AddressManagement />
-                  </Layout>
+                  <AddressManagement />
                 </PrivateRoute>
               }
             />
@@ -104,9 +89,7 @@ function App() {
               path="/add-payment-method"
               element={
                 <PrivateRoute>
-                  <Layout>
-                    <PaymentMethodForm />
-                  </Layout>
+                  <PaymentMethodForm />
                 </PrivateRoute>
               }
             />
@@ -114,9 +97,7 @@ function App() {
               path="/checkout/address"
               element={
                 <PrivateRoute>
-                  <Layout>
-                    <CheckoutAddressPage />
-                  </Layout>
+                  <CheckoutAddressPage />
                 </PrivateRoute>
               }
             />

@@ -4,6 +4,8 @@ import axios from "axios";
 import AddressModal from "../../components/addressModal/AddressModal";
 import { useCart } from "../../context/CartContext";
 import "../../styles/Checkout.css";
+import Header from "../../components/header/Header";
+import Navbar from "../../components/navbar/Navbar";
 
 function Checkout() {
   const [addresses, setAddresses] = useState([]);
@@ -87,6 +89,8 @@ function Checkout() {
   return (
     <div>
       <div className="checkout-container">
+        <Navbar />
+        <Header />
         <h1 className="checkout-title">Checkout</h1>
 
         <div className="checkout-content">

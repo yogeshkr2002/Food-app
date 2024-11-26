@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import PaymentCardModal from "../../components/paymentCardModal/PaymentCardModal";
 import "../../styles/Profile.css";
+import Header from "../../components/header/Header";
+import Navbar from "../../components/navbar/Navbar";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -100,6 +102,8 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
+      <Navbar />
+      <Header />
       <div className="profile-content">
         <h1 className="profile-header">My Profile</h1>
 
