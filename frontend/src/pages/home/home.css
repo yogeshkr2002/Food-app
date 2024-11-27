@@ -1,5 +1,21 @@
 .homeContainer {
-  width: 100vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.homeStickyDiv {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+}
+
+.homeScrollableDiv {
+  margin-top: 160px;
   display: flex;
   flex-direction: column;
   justify-content: center;

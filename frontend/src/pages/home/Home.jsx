@@ -6,6 +6,8 @@ import { useAuth } from "../../context/AuthContext";
 import "./home.css";
 import Navbar from "../../components/navbar/Navbar";
 import HomeBox1 from "../../components/homeComponents/homeBox1/HomeBox1";
+import HomeBox2 from "../../components/homeComponents/homeBox2/HomeBox2";
+import HomeBox3 from "../../components/homeComponents/homeBox3/HomeBox3";
 // import "../../styles/Home.css";
 
 function Home() {
@@ -30,9 +32,15 @@ function Home() {
   return (
     <div>
       <div className="homeContainer">
-        <Navbar />
-        <Header />
-        <HomeBox1 />
+        <div className="homeStickyDiv">
+          <Navbar />
+          <Header />
+        </div>
+        <div className="homeScrollableDiv">
+          <HomeBox1 />
+          <HomeBox2 />
+          <HomeBox3 />
+        </div>
       </div>
 
       {/* ------------------------ */}

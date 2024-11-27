@@ -18,24 +18,24 @@ const HomeBox1 = () => {
       </div>
       <div className="homeBox1Right">
         <div className="homeBox1Right1">
-          <img src="./image/girl1.png" alt="" />
+          <img src="./image/homeImage/girl1.png" alt="" />
         </div>
         <div className="homeBox1Right2">
-          <img src="./image/girl2.png" alt="" />
+          <img src="./image/homeImage/girl2.png" alt="" />
         </div>
         <div className="homeBox1Right3">
           <p style={{ fontWeight: "bold" }}>We’ve Received your order!</p>
           <p>Awaiting Restaurant acceptance </p>
         </div>
         <div className="homeBox1Right4">
-          <p style={{ fontWeight: "bold" }}>We’ve Received your order!</p>
-          <p>Awaiting Restaurant acceptance </p>{" "}
+          <p style={{ fontWeight: "bold" }}>Order Accepted! </p>
+          <p>Your order will be delivered shortly </p>
         </div>
         <div className="homeBox1Right5">
-          <img src="./image/Group3.png" alt="" />
+          <img src="./image/homeImage/Group3.png" alt="" />
         </div>
         <div className="homeBox1Right6">
-          <img src="./image/orangeBackground.png" alt="" />
+          <img src="./image/homeImage/orangeBackground.png" alt="" />
         </div>
       </div>
     </div>

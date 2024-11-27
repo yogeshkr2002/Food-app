@@ -67,7 +67,7 @@
   height: 30%;
   left: 50%;
   top: 10%;
-  background-image: url("./image/Group1.png");
+  background-image: url("./image/homeImage/Group1.png");
   background-size: contain;
   z-index: 3;
   display: flex;
@@ -89,7 +89,7 @@
   height: 30%;
   left: 57%;
   top: 37%;
-  background-image: url("./image/Group2.png");
+  background-image: url("./image/homeImage/Group2.png");
   background-size: contain;
   z-index: 3;
   display: flex;
