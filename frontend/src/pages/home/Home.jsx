@@ -5,6 +5,7 @@ import PopularRestaurants from "../../components/popularRestaurants/PopularResta
 import { useAuth } from "../../context/AuthContext";
 import "./home.css";
 import Navbar from "../../components/navbar/Navbar";
+import HomeBox1 from "../../components/homeComponents/homeBox1/HomeBox1";
 // import "../../styles/Home.css";
 
 function Home() {
@@ -31,11 +32,11 @@ function Home() {
       <div className="homeContainer">
         <Navbar />
         <Header />
+        <HomeBox1 />
       </div>
 
       {/* ------------------------ */}
-      {/* <Header />
-      <div className="content">
+      {/* <div className="content">
         <h1>Welcome to Home Page</h1>
         <p>{message}</p>
         <PopularRestaurants />

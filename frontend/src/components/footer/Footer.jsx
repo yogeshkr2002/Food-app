@@ -67,10 +67,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="bottom">
-        <div className="box1">
+        <div className="bottomBox1">
           <p>Order.uk Copyright 2024, All Rights Reserved.</p>
         </div>
-        <div className="box1">
+        <div className="bottomBox1">
           <ul>
             <li>Privacy Policy </li>
             <li>Terms</li>

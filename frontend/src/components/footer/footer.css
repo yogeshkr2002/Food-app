@@ -151,14 +151,14 @@
   background-color: rgb(11, 9, 6);
 }
 
-.box1 {
+.bottomBox1 {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 10px;
 }
 
-.box1 ul {
+.bottomBox1 ul {
   display: flex;
   list-style: none;
   padding: 0;
@@ -166,6 +166,6 @@
   gap: 20px;
 }
 
-.box1 li {
+.bottomBox1 li {
   cursor: pointer;
 }

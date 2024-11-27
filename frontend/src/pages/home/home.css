@@ -1,3 +1,7 @@
 .homeContainer {
-  /* background-color: rgb(248, 162, 49); */
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
