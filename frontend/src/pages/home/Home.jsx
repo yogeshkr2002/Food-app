@@ -8,10 +8,11 @@ import Navbar from "../../components/navbar/Navbar";
 import HomeBox1 from "../../components/homeComponents/homeBox1/HomeBox1";
 import HomeBox2 from "../../components/homeComponents/homeBox2/HomeBox2";
 import HomeBox3 from "../../components/homeComponents/homeBox3/HomeBox3";
+import HomeBox4 from "../../components/homeComponents/homeBox4/HomeBox4";
+import Footer from "../../components/footer/Footer";
 // import "../../styles/Home.css";
 
 function Home() {
-  const [message, setMessage] = useState("");
   const { user } = useAuth();
 
   useEffect(() => {
@@ -30,25 +31,19 @@ function Home() {
   }, [user.token]);
 
   return (
-    <div>
-      <div className="homeContainer">
-        <div className="homeStickyDiv">
-          <Navbar />
-          <Header />
-        </div>
-        <div className="homeScrollableDiv">
-          <HomeBox1 />
-          <HomeBox2 />
-          <HomeBox3 />
-        </div>
+    <div className="homeContainer">
+      <div className="homeStickyDiv">
+        <Navbar />
+        <Header />
       </div>
-
-      {/* ------------------------ */}
-      {/* <div className="content">
-        <h1>Welcome to Home Page</h1>
-        <p>{message}</p>
+      <div className="homeScrollableDiv">
+        <HomeBox1 />
+        <HomeBox2 />
+        <HomeBox3 />
         <PopularRestaurants />
-      </div> */}
+        <HomeBox4 />
+        <Footer />
+      </div>
     </div>
   );
 }

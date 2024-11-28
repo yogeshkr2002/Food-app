@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
-import "../../styles/PopularRestaurants.css";
+import "./popularRestaurant.css";
 
 function PopularRestaurants() {
   const navigate = useNavigate();
@@ -35,16 +35,20 @@ function PopularRestaurants() {
   }
 
   return (
-    <div className="popular-restaurants">
+    <div className="popularRestaurantsContainer">
       <h2>Popular Restaurants</h2>
-      <div className="restaurants-scroll">
+      <div className="restaurantsScroll">
         {restaurants.map((restaurant) => (
           <div
             key={restaurant._id}
-            className="restaurant-card"
+            className="restaurantCard"
             onClick={() => navigate("/products")}
           >
-            <img src={restaurant.image} alt={restaurant.name} />
+            <img
+              className="restaurantImage"
+              src={restaurant.image}
+              alt={restaurant.name}
+            />
             <h3>{restaurant.name}</h3>
             <p>{restaurant.description}</p>
           </div>

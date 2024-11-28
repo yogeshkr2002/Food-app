@@ -18,8 +18,8 @@ const HomeBox2 = () => {
             {["Vegan", "Sushi", "Pizza & Fast food", "Others"].map((item) => (
               <li
                 key={item}
-                onClick={() => handleItemClick(item)} // Set the clicked item as active
-                className={activeItem === item ? "activeButton" : ""} // Add class for active item
+                onClick={() => handleItemClick(item)}
+                className={activeItem === item ? "activeButton" : ""}
               >
                 {item}
               </li>
