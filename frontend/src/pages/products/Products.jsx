@@ -6,8 +6,10 @@ import PopularRestaurants from "../../components/popularRestaurants/PopularResta
 import CustomerReviews from "../../components/reviews/CustomerReviews";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
-import "../../styles/Products.css";
 import Navbar from "../../components/navbar/Navbar";
+import "./products.css";
+import ProductsBox1 from "../../components/productsComponents/productsBox1/ProductsBox1";
+import ProductsBox2 from "../../components/productsComponents/productsBox2/ProductsBox2";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -68,53 +70,61 @@ function Products() {
       <div>
         <Navbar />
         <Header />
-        <div className="products-container">
-          <div className="loading">Loading products...</div>
+        <div className="productsContainer">
+          <p>Loading products...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div>
-      <Navbar />
-      <Header />
-      <div className={`products-container ${isCartOpen ? "with-cart" : ""}`}>
-        <div className="main-content">
-          <div className="search-section">
-            <form onSubmit={handleSearch} className="search-form">
-              <div className="search-input-container">
-                <i className="search-icon">🔍</i>
-                <input
-                  type="text"
-                  placeholder="Search categories..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="search-input"
-                />
-                {searchTerm && (
-                  <button
-                    type="button"
-                    className="clear-search"
-                    onClick={() => setSearchTerm("")}
-                  >
-                    ×
-                  </button>
-                )}
-              </div>
-              <button type="submit" className="search-button">
-                Search
-              </button>
+    <div className="productsContainer">
+      <div className="productStickyDiv">
+        <Navbar />
+        <Header />
+      </div>
+      <div className="productScrollableDiv">
+        {/* <ProductsBox1 /> */}
+        <div className="productsBox3">
+          <div className="searchBoxHeader">
+            <h4>All Offers from McDonald’s East London</h4>
+            {/* Search section */}
+
+            <form onSubmit={handleSearch} className="searchForm">
+              <img src="./image/productsImage/SearchIcon.png" alt="" />
+              <input
+                type="text"
+                placeholder="Search from menu..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="searchInput"
+              />
+              {/* {searchTerm && (
+                <button
+                  type="button"
+                  className="clearSearchBtn"
+                  onClick={() => setSearchTerm("")}
+                >
+                  ×
+                </button>
+              )} */}
+              {/* <button type="submit" className="search-button">
+                  Search
+                </button> */}
             </form>
+
+            {/* --------- Category Header --------- */}
+
+            {/* <div className="categories-header">
+                {filteredCategories.map((category) => (
+                  <div key={category} className="category-label">
+                    {category}
+                  </div>
+                ))}
+              </div> */}
           </div>
 
-          <div className="categories-header">
-            {filteredCategories.map((category) => (
-              <div key={category} className="category-label">
-                {category}
-              </div>
-            ))}
-          </div>
+          {/* ------------------------- */}
 
           {error ? (
             <div className="error-message">{error}</div>
@@ -155,67 +165,66 @@ function Products() {
             </>
           )}
 
-          <PopularRestaurants />
-          <CustomerReviews />
-        </div>
-
-        {isCartOpen && (
-          <div className="cart-sidebar">
-            <div className="cart-header">
-              <h2>My Cart</h2>
-              <button className="close-cart" onClick={toggleCart}>
-                ×
-              </button>
-            </div>
-            {cartItems.length === 0 ? (
-              <p>Your cart is empty</p>
-            ) : (
-              <>
-                <div className="cart-items">
-                  {cartItems.map((item) => (
-                    <div key={item._id} className="cart-item">
-                      <div className="item-info">
-                        <h3>{item.name}</h3>
-                        <p>${item.price.toFixed(2)}</p>
+          {/* {isCartOpen && (
+            <div className="cart-sidebar">
+              <div className="cart-header">
+                <h2>My Cart</h2>
+                <button className="close-cart" onClick={toggleCart}>
+                  ×
+                </button>
+              </div>
+              {cartItems.length === 0 ? (
+                <p>Your cart is empty</p>
+              ) : (
+                <>
+                  <div className="cart-items">
+                    {cartItems.map((item) => (
+                      <div key={item._id} className="cart-item">
+                        <div className="item-info">
+                          <h3>{item.name}</h3>
+                          <p>${item.price.toFixed(2)}</p>
+                        </div>
+                        <div className="item-controls">
+                          <button
+                            onClick={() =>
+                              updateQuantity(item._id, item.quantity - 1)
+                            }
+                          >
+                            -
+                          </button>
+                          <span>{item.quantity}</span>
+                          <button
+                            onClick={() =>
+                              updateQuantity(item._id, item.quantity + 1)
+                            }
+                          >
+                            +
+                          </button>
+                          <button
+                            className="remove-btn"
+                            onClick={() => removeFromCart(item._id)}
+                          >
+                            ×
+                          </button>
+                        </div>
                       </div>
-                      <div className="item-controls">
-                        <button
-                          onClick={() =>
-                            updateQuantity(item._id, item.quantity - 1)
-                          }
-                        >
-                          -
-                        </button>
-                        <span>{item.quantity}</span>
-                        <button
-                          onClick={() =>
-                            updateQuantity(item._id, item.quantity + 1)
-                          }
-                        >
-                          +
-                        </button>
-                        <button
-                          className="remove-btn"
-                          onClick={() => removeFromCart(item._id)}
-                        >
-                          ×
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="cart-footer">
-                  <div className="cart-total">
-                    <h3>Total: ${getTotalAmount().toFixed(2)}</h3>
+                    ))}
                   </div>
-                  <Link to="/checkout" className="checkout-btn">
-                    Checkout <span className="arrow">→</span>
-                  </Link>
-                </div>
-              </>
-            )}
-          </div>
-        )}
+                  <div className="cart-footer">
+                    <div className="cart-total">
+                      <h3>Total: ${getTotalAmount().toFixed(2)}</h3>
+                    </div>
+                    <Link to="/checkout" className="checkout-btn">
+                      Checkout <span className="arrow">→</span>
+                    </Link>
+                  </div>
+                </>
+              )}
+            </div>
+          )} */}
+        </div>
+        {/* <PopularRestaurants heading="Similar Restaurants" />
+        <CustomerReviews /> */}
       </div>
     </div>
   );

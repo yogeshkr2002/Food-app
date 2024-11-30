@@ -10,7 +10,6 @@ import HomeBox2 from "../../components/homeComponents/homeBox2/HomeBox2";
 import HomeBox3 from "../../components/homeComponents/homeBox3/HomeBox3";
 import HomeBox4 from "../../components/homeComponents/homeBox4/HomeBox4";
 import Footer from "../../components/footer/Footer";
-// import "../../styles/Home.css";
 
 function Home() {
   const { user } = useAuth();
@@ -40,7 +39,7 @@ function Home() {
         <HomeBox1 />
         <HomeBox2 />
         <HomeBox3 />
-        <PopularRestaurants />
+        <PopularRestaurants heading="Popular Restaurants" />
         <HomeBox4 />
         <Footer />
       </div>

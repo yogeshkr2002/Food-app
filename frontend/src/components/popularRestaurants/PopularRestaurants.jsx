@@ -4,7 +4,7 @@ import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import "./popularRestaurant.css";
 
-function PopularRestaurants() {
+function PopularRestaurants({ heading }) {
   const navigate = useNavigate();
   const { user } = useAuth();
   const [restaurants, setRestaurants] = useState([]);
@@ -36,7 +36,7 @@ function PopularRestaurants() {
 
   return (
     <div className="popularRestaurantsContainer">
-      <h2>Popular Restaurants</h2>
+      <h2>{heading}</h2>
       <div className="restaurantsScroll">
         {restaurants.map((restaurant) => (
           <div
