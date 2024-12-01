@@ -1,0 +1,195 @@
+.productsBox3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aqua; */
+}
+
+.searchBoxHeader {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  /* background-color: beige; */
+}
+
+.searchForm {
+  width: 20%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #03081f;
+  border-radius: 25px;
+  padding: 5px 10px;
+  gap: 10px;
+}
+
+.searchForm img {
+  height: 60%;
+}
+.searchInput {
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 90%;
+}
+
+.searchBoxHeaderTop {
+  width: 90%;
+  height: 40%;
+  display: flex;
+  padding: 0 5%;
+  font-size: 26px;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.searchBoxHeaderBottom {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 5%;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  background: #fc8a06;
+  margin-top: 15px;
+}
+
+.searchBoxHeaderBottom ul {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.searchBoxHeaderBottom ul li {
+  cursor: pointer;
+}
+
+.searchBoxHeaderBottom ul li.activeButton {
+  background-color: black;
+  padding: 5px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* --------------------------------- */
+
+.categoryContainer {
+  width: 92%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  overflow-y: hidden;
+}
+
+.category {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.category h2 {
+  margin-left: 2%;
+}
+
+.itemContainer {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 31%;
+  height: 40%;
+  margin: 0 1%;
+  display: flex;
+  border: 1px solid black;
+  box-shadow: 0 8px 6px 6px rgba(0, 0, 0, 0.1); /* Add this for shadow */
+  border-radius: 10px; /* Optional: for rounded corners */
+  border: none;
+  position: relative;
+}
+
+.itemLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 100%;
+  padding-left: 5%;
+}
+
+.itemLeft p {
+  font-size: 16px;
+}
+
+.price {
+  font-weight: bolder;
+}
+
+.itemRight {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5%;
+}
+
+.itemRight img {
+  width: 100%;
+  height: 90%;
+  border-radius: 10px;
+}
+
+.itemBtn {
+  width: 20%;
+  height: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 5%;
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  border-top-left-radius: 40px;
+}
+
+/* .itemBtn:hover {
+  background: rgba(255, 255, 255, 1); 
+} */
+
+.addToCartBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 100;
+}

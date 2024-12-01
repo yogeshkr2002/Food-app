@@ -1,3 +1,11 @@
+.products {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
 .productsBox1Container {
   width: 90%;
   height: 50vh;
@@ -6,6 +14,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  /* top: 160px; */
   /* background-color: antiquewhite; */
 }
 

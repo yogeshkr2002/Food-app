@@ -80,3 +80,30 @@ const products = [
     description: "Loaded with pepperoni and cheese",
   },
 ];
+// -------------------Products page-------------------------
+{
+  /* {searchTerm && (
+                <button
+                  type="button"
+                  className="clearSearchBtn"
+                  onClick={() => setSearchTerm("")}
+                >
+                  ×
+                </button>
+              )} */
+}
+{
+  /* <button type="submit" className="search-button">
+                  Search
+                </button> */
+}
+
+{
+  /* <div className="categories-header">
+                {filteredCategories.map((category) => (
+                  <div key={category} className="category-label">
+                    {category}
+                  </div>
+                ))}
+              </div> */
+}
