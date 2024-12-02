@@ -63,7 +63,11 @@ const ProductsBox3 = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // The search is already happening through the filteredCategories
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText("Your cart link here");
+    alert("Link copied to clipboard!");
   };
 
   if (loading) {
@@ -121,103 +125,191 @@ const ProductsBox3 = () => {
 
       {/* ------------------------- */}
 
-      {error ? (
-        <div className="error">{error}</div>
-      ) : (
-        <div className="categoryContainer">
-          {filteredCategories.map((category) => (
-            <div key={category} className="category">
-              <h2>{category}</h2>
-              <div className="itemContainer">
-                {products.length > 0 ? (
-                  products.map((product) => (
-                    <div key={`${category}-${product._id}`} className="item">
-                      <div className="itemLeft">
-                        <h3>{product.name}</h3>
-                        <p>{product.description}</p>
-                        <p className="price">Rs. {product.price.toFixed(2)}</p>
+      <div className="category_cart_container">
+        {error ? (
+          <div className="error">{error}</div>
+        ) : (
+          <div className="categoryContainer">
+            {filteredCategories.map((category) => (
+              <div key={category} className="category">
+                <h2>{category}</h2>
+                <div className="itemContainer">
+                  {products.length > 0 ? (
+                    products.map((product) => (
+                      <div key={`${category}-${product._id}`} className="item">
+                        <div className="itemLeft">
+                          <h3>{product.name}</h3>
+                          <p>{product.description}</p>
+                          <p className="price">
+                            Rs. {product.price.toFixed(2)}
+                          </p>
+                        </div>
+                        <div className="itemRight">
+                          <img src={product.image} alt={product.name} />
+                        </div>
+                        <div className="itemBtn">
+                          <button
+                            className="addToCartBtn"
+                            onClick={() => addToCart(product)}
+                          >
+                            +
+                          </button>
+                        </div>
                       </div>
-                      <div className="itemRight">
-                        <img src={product.image} alt={product.name} />
-                      </div>
-                      <div className="itemBtn">
-                        <button
-                          className="addToCartBtn"
-                          onClick={() => addToCart(product)}
-                        >
-                          +
-                        </button>
-                      </div>
+                    ))
+                  ) : (
+                    <div className="noProducts">
+                      No products available in this category
                     </div>
-                  ))
-                ) : (
-                  <div className="noProducts">
-                    No products available in this category
-                  </div>
-                )}
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {isCartOpen && (
+          <div className="cartContainer">
+            <div className="shareCartContainer">
+              <div className="shareImg">
+                <img
+                  src="./image/productsImage/share.png
+                "
+                  alt="share image"
+                />
+              </div>
+              <div className="textContainer">
+                <span className="ShareText">Share this cart</span>
+                <br />
+                <span className="ShareText">with your friends</span>
+              </div>
+              <div className="shareBtnBox">
+                <button className="copyLinkBtn" onClick={handleCopyLink}>
+                  Copy Link
+                </button>
               </div>
             </div>
-          ))}
-        </div>
-      )}
+            <div className="myCart">
+              <div className="myCartHeader">
+                <h2>My Basket</h2>
+                <button className="closeCartBtn" onClick={toggleCart}>
+                  ×
+                </button>
+              </div>
 
-      {isCartOpen && (
-        <div>
-          <div>
-            <h2>My Cart</h2>
-            <button className="closeCartBtn" onClick={toggleCart}>
-              ×
-            </button>
-          </div>
-          {cartItems.length === 0 ? (
-            <p>Your cart is empty</p>
-          ) : (
-            <>
-              <div className="cart-items">
-                {cartItems.map((item) => (
-                  <div key={item._id} className="cart-item">
-                    <div className="item-info">
-                      <h3>{item.name}</h3>
-                      <p>${item.price.toFixed(2)}</p>
+              {cartItems.length === 0 ? (
+                <p>Your cart is empty</p>
+              ) : (
+                <>
+                  <div className="cartItemsContainer">
+                    {cartItems.map((item) => (
+                      <div key={item._id} className="cartItems">
+                        <div className="cartItemsLeft">
+                          <div className="itemNoBox">{item.quantity}x</div>
+                        </div>
+                        <div className="cartItemsMid">
+                          <p>Rs {item.price.toFixed(2)}</p>
+
+                          <h3>{item.name}</h3>
+                        </div>
+                        <div className="cartItemsRight">
+                          <button
+                            className="deleteItem"
+                            onClick={() => removeFromCart(item._id)}
+                          >
+                            <img
+                              src="./image/productsImage/Delete.png"
+                              alt=""
+                            />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="chargesContainer">
+                    <ul>
+                      <li>
+                        <span>Sub Total:</span>
+                        <span>Rs {getTotalAmount().toFixed(2)}</span>
+                      </li>
+                      <li>
+                        <span>Discounts:</span>
+                        <span>Rs 0</span>
+                      </li>
+                      <li>
+                        <span>Delivery Fee:</span>
+                        <span>Rs 0</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="totalCharges">
+                    <ul>
+                      <li className="total">
+                        <span>Total to pay </span>
+                        <span style={{ fontSize: "32px" }}>
+                          Rs {getTotalAmount().toFixed(2)}
+                        </span>
+                      </li>
+                      <li className="otherOffers">
+                        <span>Choose your free item..</span>
+                        <span>
+                          <img
+                            src="./image/productsImage/downArrow.png"
+                            alt=""
+                          />
+                        </span>
+                      </li>
+                      <li className="otherOffers">
+                        <span>Apply Coupon Code here</span>
+                        <span>
+                          <img
+                            src="./image/productsImage/rightArrow.png"
+                            alt=""
+                          />
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="checkoutBtnContainer">
+                    <div className="topBoxOther">
+                      <div className="scooter">
+                        <img
+                          src="./image/productsImage/scotter.png"
+                          alt="scooter"
+                        />
+                        <span>Delivery</span>
+                        <span>Starts at 17:50</span>
+                      </div>
+                      <div className="store">
+                        <img
+                          src="./image/productsImage/store.png"
+                          alt="store"
+                        />
+                        <span>Collection</span>
+                        <span> Starts at 16:50</span>
+                      </div>
                     </div>
-                    <div className="item-controls">
-                      <button
-                        onClick={() =>
-                          updateQuantity(item._id, item.quantity - 1)
-                        }
-                      >
-                        -
-                      </button>
-                      <span>{item.quantity}</span>
-                      <button
-                        onClick={() =>
-                          updateQuantity(item._id, item.quantity + 1)
-                        }
-                      >
-                        +
-                      </button>
-                      <button
-                        className="remove-btn"
-                        onClick={() => removeFromCart(item._id)}
-                      >
-                        ×
-                      </button>
+                    <div className="checkoutButtonDiv">
+                      <span className="arrow">
+                        <img
+                          src="./image/productsImage/forwardArrow.png"
+                          alt=""
+                        />
+                      </span>
+                      <span className="checkoutText">
+                        <Link to="/checkout" className="checkoutTextLink">
+                          Checkout
+                        </Link>
+                      </span>
                     </div>
                   </div>
-                ))}
-              </div>
-              <div className="cart-footer">
-                <div className="cart-total">
-                  <h3>Total: ${getTotalAmount().toFixed(2)}</h3>
-                </div>
-                <Link to="/checkout" className="checkout-btn">
-                  Checkout <span className="arrow">→</span>
-                </Link>
-              </div>
-            </>
-          )}
-        </div>
-      )}
+                </>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

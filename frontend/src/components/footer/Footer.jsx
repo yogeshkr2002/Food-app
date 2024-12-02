@@ -10,7 +10,7 @@ const Footer = () => {
             <img
               src="./image/app-store-badges.png"
               alt="store"
-              className="store"
+              className="storeFooter"
             />
             <div>
               <p>Company # 490039-445, Registered with </p>

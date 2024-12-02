@@ -3,6 +3,8 @@ import Navbar from "../../components/navbar/Navbar";
 import "./products.css";
 import ProductsBox1 from "../../components/productsComponents/productsBox1/ProductsBox1";
 import ProductsBox3 from "../../components/productsComponents/productsBox3/ProductsBox3";
+import CustomerReviews from "../../components/reviews/CustomerReviews";
+import Footer from "../../components/footer/Footer";
 
 function Products() {
   return (
@@ -15,6 +17,8 @@ function Products() {
       <div className="productScrollableDiv">
         <ProductsBox1 />
         <ProductsBox3 />
+        {/* <CustomerReviews /> */}
+        <Footer />
       </div>
     </div>
   );
