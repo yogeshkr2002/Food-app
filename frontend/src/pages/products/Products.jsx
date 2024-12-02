@@ -5,6 +5,9 @@ import ProductsBox1 from "../../components/productsComponents/productsBox1/Produ
 import ProductsBox3 from "../../components/productsComponents/productsBox3/ProductsBox3";
 import CustomerReviews from "../../components/reviews/CustomerReviews";
 import Footer from "../../components/footer/Footer";
+import ProductsBox4 from "../../components/productsComponents/productsBox4/ProductsBox4";
+import "leaflet/dist/leaflet.css";
+import ProductsBox5 from "../../components/productsComponents/productsBox5/ProductsBox5";
 
 function Products() {
   return (
@@ -17,7 +20,9 @@ function Products() {
       <div className="productScrollableDiv">
         <ProductsBox1 />
         <ProductsBox3 />
-        {/* <CustomerReviews /> */}
+        <ProductsBox4 />
+        <ProductsBox5 />
+        <CustomerReviews />
         <Footer />
       </div>
     </div>
