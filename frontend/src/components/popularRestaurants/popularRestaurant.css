@@ -1,7 +1,8 @@
 .popularRestaurantsContainer {
   width: 90vw;
   height: 40vh;
-  margin-top: 15px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 .popularRestaurantsContainer h2 {
   font-size: 32px;

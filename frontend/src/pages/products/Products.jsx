@@ -8,6 +8,7 @@ import Footer from "../../components/footer/Footer";
 import ProductsBox4 from "../../components/productsComponents/productsBox4/ProductsBox4";
 import "leaflet/dist/leaflet.css";
 import ProductsBox5 from "../../components/productsComponents/productsBox5/ProductsBox5";
+import PopularRestaurants from "../../components/popularRestaurants/PopularRestaurants";
 
 function Products() {
   return (
@@ -23,6 +24,7 @@ function Products() {
         <ProductsBox4 />
         <ProductsBox5 />
         <CustomerReviews />
+        <PopularRestaurants heading="Similar Restaurants" />
         <Footer />
       </div>
     </div>

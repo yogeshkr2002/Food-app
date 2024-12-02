@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
-import "../../styles/CustomerReviews.css";
+import "./CustomerReviews.css";
 
 function CustomerReviews() {
   const [reviews, setReviews] = useState([]);
@@ -83,24 +83,33 @@ function CustomerReviews() {
   const visibleReviews = reviews.slice(currentIndex, currentIndex + 3);
 
   return (
-    <div className="customer-reviews">
+    <div className="customer-reviews-container">
       <div className="reviews-header">
         <h2>Customer Reviews</h2>
-        <div className="average-rating">
-          <span className="rating-number">{getAverageRating()}</span>
-          <div className="rating-details">
-            <div className="stars">
-              {renderStars(Math.round(getAverageRating()))}
-            </div>
-            <p>Based on {reviews.length} reviews</p>
+        <div className="arrowBtn">
+          <div className="addReview">
+            <button
+              className="add-review-btn"
+              onClick={() => setShowAddReview(!showAddReview)}
+            >
+              {showAddReview ? "Cancel" : "Add Review"}
+            </button>
           </div>
+          <button
+            className="nav-button"
+            onClick={handlePrevious}
+            disabled={currentIndex === 0}
+          >
+            <img src="./image/productsImage/Group56.png" alt="" />
+          </button>
+          <button
+            className="nav-button"
+            onClick={handleNext}
+            disabled={currentIndex >= reviews.length - 3}
+          >
+            <img src="./image/productsImage/Group57.png" alt="" />
+          </button>
         </div>
-        <button
-          className="add-review-btn"
-          onClick={() => setShowAddReview(!showAddReview)}
-        >
-          {showAddReview ? "Cancel" : "Add Review"}
-        </button>
       </div>
 
       {showAddReview && (
@@ -148,13 +157,6 @@ function CustomerReviews() {
       )}
 
       <div className="reviews-container">
-        <button
-          className="nav-button prev"
-          onClick={handlePrevious}
-          disabled={currentIndex === 0}
-        >
-          ←
-        </button>
         <div className="reviews-grid">
           {visibleReviews.map((review) => (
             <div key={review._id} className="review-card">
@@ -167,23 +169,31 @@ function CustomerReviews() {
                 <div className="review-info">
                   <h3>{review.userName}</h3>
                   <p className="location">{review.location}</p>
+                </div>
+                <div className="rating">
+                  <p>{renderStars(review.rating)}</p>
                   <p className="date">
                     {new Date(review.date).toLocaleDateString()}
                   </p>
                 </div>
               </div>
-              <div className="rating">{renderStars(review.rating)}</div>
+
               <p className="review-text">{review.description}</p>
             </div>
           ))}
         </div>
-        <button
-          className="nav-button next"
-          onClick={handleNext}
-          disabled={currentIndex >= reviews.length - 3}
-        >
-          →
-        </button>
+      </div>
+
+      <div className="ratingDiv">
+        <div className="average-rating">
+          <span className="rating-number">{getAverageRating()}</span>
+          <div className="rating-details">
+            <div className="stars">
+              {renderStars(Math.round(getAverageRating()))}
+            </div>
+            <p>Based on {reviews.length} reviews</p>
+          </div>
+        </div>
       </div>
     </div>
   );
