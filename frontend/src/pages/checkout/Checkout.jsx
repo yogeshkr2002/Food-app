@@ -6,7 +6,11 @@ import AddressModal from "../../components/addressModal/AddressModal";
 import { useCart } from "../../context/CartContext";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
+<<<<<<< HEAD
 import Footer from "../../components/footer/Footer";
+=======
+import BASE_URL from "../../config";
+>>>>>>> af685e1be190fadb5d2e68102eb82e544989ca0b
 
 function Checkout() {
   const [addresses, setAddresses] = useState([]);
@@ -33,7 +37,7 @@ function Checkout() {
   const fetchAddresses = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/api/addresses", {
+      const response = await axios.get(`${BASE_URL}/api/addresses`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAddresses(response.data);
@@ -63,7 +67,7 @@ function Checkout() {
   const handleDeleteAddress = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/addresses/${id}`, {
+      await axios.delete(`${BASE_URL}/api/addresses/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchAddresses();

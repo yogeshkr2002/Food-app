@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import "./CustomerReviews.css";
+import BASE_URL from "../../config";
 
 function CustomerReviews() {
   const [reviews, setReviews] = useState([]);
@@ -22,7 +23,7 @@ function CustomerReviews() {
 
   const fetchReviews = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/reviews", {
+      const response = await axios.get(`${BASE_URL}/api/reviews`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setReviews(response.data);
@@ -37,7 +38,7 @@ function CustomerReviews() {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/api/reviews/add",
+        `${BASE_URL}/api/reviews/add`,
         {
           ...newReview,
           profilePic: `https://randomuser.me/api/portraits/${

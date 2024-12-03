@@ -118,16 +118,27 @@
 
 .itemContainer {
   width: 100%;
+<<<<<<< HEAD
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 20px;
   /* border: 1px solid red; */
+=======
+  /* height: 80vh; */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+>>>>>>> af685e1be190fadb5d2e68102eb82e544989ca0b
 }
 
 .item {
   width: 31%;
+<<<<<<< HEAD
   /* height: 40%; */
+=======
+>>>>>>> af685e1be190fadb5d2e68102eb82e544989ca0b
   height: 200px;
   margin: 0 1%;
   display: flex;

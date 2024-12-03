@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./register.css";
 import Footer from "../../components/footer/Footer";
+import BASE_URL from "../../config";
 // import "../../styles/Register.css";
 
 const Register = () => {
@@ -34,7 +35,7 @@ const Register = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        `${BASE_URL}/api/auth/register`,
         formData
       );
 

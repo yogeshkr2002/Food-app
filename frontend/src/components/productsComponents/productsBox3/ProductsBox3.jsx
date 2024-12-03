@@ -5,6 +5,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext";
 import { useCart } from "../../../context/CartContext";
 import ProductsBox2 from "../productsBox2/ProductsBox2";
+import BASE_URL from "../../../config";
 
 const ProductsBox3 = () => {
   const [products, setProducts] = useState([]);
@@ -44,7 +45,7 @@ const ProductsBox3 = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/products", {
+        const response = await axios.get(`${BASE_URL}/api/products`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         const allProducts = response.data[Object.keys(response.data)[0]] || [];

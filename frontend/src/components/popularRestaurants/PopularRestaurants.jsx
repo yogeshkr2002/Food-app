@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 import "./popularRestaurant.css";
+import BASE_URL from "../../config";
 
 function PopularRestaurants({ heading }) {
   const navigate = useNavigate();
@@ -13,12 +14,9 @@ function PopularRestaurants({ heading }) {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/restaurants",
-          {
-            headers: { Authorization: `Bearer ${user.token}` },
-          }
-        );
+        const response = await axios.get(`${BASE_URL}/api/restaurants`, {
+          headers: { Authorization: `Bearer ${user.token}` },
+        });
         setRestaurants(response.data);
         setLoading(false);
       } catch (error) {

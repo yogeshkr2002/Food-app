@@ -5,6 +5,7 @@ import "../../styles/Profile.css";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../../config";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -44,12 +45,9 @@ const Profile = () => {
   const fetchUserProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(
-        "http://localhost:5000/api/users/profile",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await axios.get(`${BASE_URL}/api/users/profile`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setUser(response.data);
     } catch (error) {
       console.error("Error fetching profile:", error);
@@ -59,12 +57,9 @@ const Profile = () => {
   const fetchPaymentMethods = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(
-        "http://localhost:5000/api/payment-methods",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      const response = await axios.get(`${BASE_URL}/api/payment-methods`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setPaymentMethods(response.data);
     } catch (error) {
       console.error("Error fetching payment methods:", error);
@@ -74,7 +69,7 @@ const Profile = () => {
   const handleEditSubmit = async () => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put("http://localhost:5000/api/users/profile", editedInfo, {
+      await axios.put(`${BASE_URL}/api/users/profile`, editedInfo, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser({ ...user, ...editedInfo });
@@ -87,7 +82,7 @@ const Profile = () => {
   const handleDeletePaymentMethod = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/payment-methods/${id}`, {
+      await axios.delete(`${BASE_URL}/api/payment-methods/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchPaymentMethods();

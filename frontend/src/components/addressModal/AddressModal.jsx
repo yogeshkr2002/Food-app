@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../../styles/AddressModal.css";
+import BASE_URL from "../../config";
 
 const AddressModal = ({ isOpen, onClose, address, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -30,15 +31,11 @@ const AddressModal = ({ isOpen, onClose, address, onSubmit }) => {
     try {
       const token = localStorage.getItem("token");
       if (address) {
-        await axios.put(
-          `http://localhost:5000/api/addresses/${address._id}`,
-          formData,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
+        await axios.put(`${BASE_URL}/api/addresses/${address._id}`, formData, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
       } else {
-        await axios.post("http://localhost:5000/api/addresses", formData, {
+        await axios.post(`${BASE_URL}/api/addresses`, formData, {
           headers: { Authorization: `Bearer ${token}` },
         });
       }

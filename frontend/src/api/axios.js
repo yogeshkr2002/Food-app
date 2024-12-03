@@ -1,13 +1,14 @@
 import axios from "axios";
+import BASE_URL from "../config";
 
-const baseURL = "http://localhost:5000/api";
+const baseURL = `${BASE_URL}/api`;
 
 const axiosInstance = axios.create({
   baseURL,
   headers: {
     "Content-Type": "application/json",
   },
-  withCredentials: true,
+  // withCredentials: true,
 });
 
 // Add interceptor to add auth token to requests
