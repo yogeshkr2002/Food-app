@@ -3,18 +3,11 @@ import { useCart } from "../../context/CartContext";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import "../../styles/Payment.css";
+import "./Payment.css";
 
 function Payment() {
   const navigate = useNavigate();
   const { getTotalAmount } = useCart();
-
-  // const paymentMethods = [
-  //   { id: 1, name: "Credit Card", icon: "💳" },
-  //   { id: 2, name: "PayPal", icon: "🅿️" },
-  //   { id: 3, name: "Apple Pay", icon: "🍎" },
-  //   { id: 4, name: "Google Pay", icon: "🔷" },
-  // ];
 
   const handleBackClick = () => {
     navigate(-1);

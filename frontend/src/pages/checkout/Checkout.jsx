@@ -1,11 +1,12 @@
+import "./checkout.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AddressModal from "../../components/addressModal/AddressModal";
 import { useCart } from "../../context/CartContext";
-import "../../styles/Checkout.css";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 function Checkout() {
   const [addresses, setAddresses] = useState([]);
@@ -76,13 +77,10 @@ function Checkout() {
 
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="checkout-container">
-        <div className="empty-cart-message">
+      <div>
+        <div>
           <h2>Your cart is empty</h2>
-          <button
-            onClick={() => navigate("/products")}
-            className="continue-shopping-btn"
-          >
+          <button onClick={() => navigate("/products")}>
             Continue Shopping
           </button>
         </div>
@@ -91,27 +89,95 @@ function Checkout() {
   }
 
   return (
-    <div>
-      <div className="checkout-container">
+    <div className="checkoutMainContainer">
+      <div className="checkoutHeader">
         <Navbar />
         <Header />
-        <div>
-          <button onClick={handleBackClick}>Go Back</button>
+      </div>
+      <div className="checkoutContainer">
+        <div className="checkoutContainerTop">
+          <button onClick={handleBackClick}>
+            <img src="./image/paymentsImage/arrow-left.png" alt="" />
+          </button>
+          <h1>Your Order Details</h1>
         </div>
-        <h1 className="checkout-title">Checkout</h1>
-
-        <div className="checkout-content">
-          <div className="delivery-section">
-            <div className="section-header">
-              <h2>Delivery Address</h2>
+        {/* ------------- */}
+        <div className="checkoutContainerBottom">
+          <div className="checkoutContainerLeft">
+            <ul>
+              {cartItems.map((item) => (
+                <>
+                  <li key={item._id} className="order-item">
+                    <span className="innerItem">
+                      <span style={{ fontWeight: "bold" }}>{item.name}</span>
+                      <span>{item.quantity}x item</span>
+                    </span>
+                    <span>${(item.price * item.quantity).toFixed(2)}</span>
+                  </li>
+                  <hr />
+                </>
+              ))}
+            </ul>
+            <li className="order-itemNote">
+              <span>Add Note</span>
+              <input
+                type="text"
+                placeholder="Write Here..."
+                className="addContentInp"
+              />
+            </li>
+          </div>
+          <div className="checkoutContainerRight">
+            <li
+              className="order-itemAddress"
+              onClick={() => navigate("/checkout/address")}
+            >
+              <div className="mapPinDiv">
+                <img src="./image/checkoutImage/MapPin.png" alt="Map pin" />
+              </div>
+              <button className="change-address-btn">Delivery Address</button>
+              <div className="orangeRightArrow">
+                <img
+                  src="./image/checkoutImage/ArrowRightOrange.png"
+                  alt="Map pin"
+                />
+              </div>
+            </li>
+            <hr />
+            <li className="order-itemCharges">
+              <div className="price-row">
+                <span>Items</span>
+                <span>Rs {subtotal.toFixed(2)}</span>
+              </div>
+              <div className="price-row">
+                <span>Sales Tax</span>
+                <span>Rs {tax.toFixed(2)}</span>
+              </div>
+              <div className="price-row">
+                <span>Delivery Fee</span>
+                <span>Rs {deliveryFee.toFixed(2)}</span>
+              </div>
+            </li>
+            <hr />
+            <li className="order-itemTotal">
+              <div className="price-row">
+                <span className="subTotalCharges">Subtotal</span>
+                <span className="subTotalCharges">Rs {total.toFixed(2)}</span>
+              </div>
               <button
-                onClick={() => navigate("/checkout/address")}
-                className="change-address-btn"
+                className="proceedToPaymentBtn"
+                onClick={() => navigate("/payment")}
+                disabled={!selectedAddress}
               >
-                Change Address
+                Proceed to Payment →
               </button>
-            </div>
+            </li>
+          </div>
+        </div>
 
+        <div>
+          {/* ------------------- */}
+          {/* <div>
             {showAddresses ? (
               <div className="addresses-list">
                 <div className="addresses-header">
@@ -192,50 +258,9 @@ function Checkout() {
                 </button>
               </div>
             )}
-          </div>
-
-          <div className="order-summary">
-            <h2>Order Summary</h2>
-            <div className="order-items">
-              {cartItems.map((item) => (
-                <div key={item._id} className="order-item">
-                  <div className="item-details">
-                    <span>{item.name}</span>
-                    <span>x{item.quantity}</span>
-                  </div>
-                  <span>${(item.price * item.quantity).toFixed(2)}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="price-details">
-              <div className="price-row">
-                <span>Subtotal</span>
-                <span>${subtotal.toFixed(2)}</span>
-              </div>
-              <div className="price-row">
-                <span>Tax (10%)</span>
-                <span>${tax.toFixed(2)}</span>
-              </div>
-              <div className="price-row">
-                <span>Delivery Fee</span>
-                <span>${deliveryFee.toFixed(2)}</span>
-              </div>
-              <div className="price-row total">
-                <span>Total</span>
-                <span>${total.toFixed(2)}</span>
-              </div>
-            </div>
-          </div>
+          </div> */}
+          {/* ------------------------- */}
         </div>
-
-        <button
-          className="proceed-payment-btn"
-          onClick={() => navigate("/payment")}
-          disabled={!selectedAddress}
-        >
-          Proceed to Payment →
-        </button>
       </div>
 
       <AddressModal
@@ -250,6 +275,7 @@ function Checkout() {
           setShowAddresses(true);
         }}
       />
+      <Footer />
     </div>
   );
 }
