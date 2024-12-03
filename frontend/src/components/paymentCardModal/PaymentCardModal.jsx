@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../../styles/PaymentCardModal.css";
+import BASE_URL from "../../config";
 
 const PaymentCardModal = ({ isOpen, onClose, onSubmit, editCard }) => {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ const PaymentCardModal = ({ isOpen, onClose, onSubmit, editCard }) => {
       const token = localStorage.getItem("token");
       if (editCard) {
         await axios.put(
-          `http://localhost:5000/api/payment-methods/${editCard._id}`,
+          `${BASE_URL}/api/payment-methods/${editCard._id}`,
           {
             cardNumber: formData.cardNumber,
             cardHolderName: formData.cardHolderName,
@@ -49,13 +50,9 @@ const PaymentCardModal = ({ isOpen, onClose, onSubmit, editCard }) => {
           }
         );
       } else {
-        await axios.post(
-          "http://localhost:5000/api/payment-methods",
-          formData,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
+        await axios.post(`${BASE_URL}/api/payment-methods`, formData, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
       }
       await onSubmit();
       onClose();

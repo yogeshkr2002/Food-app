@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import BASE_URL from "../../config";
 
 const PaymentMethodForm = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const PaymentMethodForm = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/payment-methods", formData, {
+      await axios.post(`${BASE_URL}/api/payment-methods`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       navigate("/profile");

@@ -10,6 +10,7 @@ import HomeBox2 from "../../components/homeComponents/homeBox2/HomeBox2";
 import HomeBox3 from "../../components/homeComponents/homeBox3/HomeBox3";
 import HomeBox4 from "../../components/homeComponents/homeBox4/HomeBox4";
 import Footer from "../../components/footer/Footer";
+import BASE_URL from "../../config";
 
 function Home() {
   const { user } = useAuth();
@@ -17,7 +18,7 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/home", {
+        const response = await axios.get(`${BASE_URL}/api/home`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setMessage(response.data.message);

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AddressModal from "../../components/addressModal/AddressModal";
+import BASE_URL from "../../config";
 
 const AddressManagement = () => {
   const [addresses, setAddresses] = useState([]);
@@ -10,7 +11,7 @@ const AddressManagement = () => {
   const fetchAddresses = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/api/addresses", {
+      const response = await axios.get(`${BASE_URL}/api/addresses`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAddresses(response.data);
@@ -26,7 +27,7 @@ const AddressManagement = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/addresses/${id}`, {
+      await axios.delete(`${BASE_URL}/api/addresses/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchAddresses();
