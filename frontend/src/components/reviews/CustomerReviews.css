@@ -1,6 +1,6 @@
 .customer-reviews-container {
   width: 100%;
-  height: 60vh;
+  height: 55vh;
   margin-top: 30px;
   margin-bottom: 50px;
   padding: 2rem;
@@ -55,8 +55,8 @@
   background: #f8f9fa;
   border-radius: 8px;
   position: absolute;
-  left: 30px;
-  top: 30px;
+  left: 20%;
+  top: 20px;
 }
 
 .stars {

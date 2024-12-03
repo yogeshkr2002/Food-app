@@ -1,15 +1,18 @@
+import "./OrderSuccess.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/Header";
-import "../../styles/OrderSuccess.css";
 import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 function OrderSuccess() {
   const navigate = useNavigate();
 
   return (
     <div>
-      <Navbar />
-      <Header />
+      <div className="header">
+        <Navbar />
+        <Header />
+      </div>
       <div className="order-success-container">
         <div className="success-content">
           <div className="success-icon">✓</div>
@@ -18,11 +21,17 @@ function OrderSuccess() {
           <p>
             Order ID: #{Math.random().toString(36).substr(2, 9).toUpperCase()}
           </p>
-          <button className="back-home-btn" onClick={() => navigate("/home")}>
-            Back to Home
-          </button>
+          <div className="contentWithBtn">
+            <span>Royal Cheese Burger</span>
+            <span>Potato Veggies</span>
+            <span>Coke Coca Cola</span>
+            <button className="back-home-btn" onClick={() => navigate("/home")}>
+              Back to Home
+            </button>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
