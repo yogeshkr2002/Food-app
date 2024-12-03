@@ -16,6 +16,10 @@ function Checkout() {
   const navigate = useNavigate();
   const { cartItems, getTotalAmount } = useCart();
 
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
   const subtotal = getTotalAmount();
   const tax = subtotal * 0.1;
   const deliveryFee = 5.0;
@@ -91,6 +95,9 @@ function Checkout() {
       <div className="checkout-container">
         <Navbar />
         <Header />
+        <div>
+          <button onClick={handleBackClick}>Go Back</button>
+        </div>
         <h1 className="checkout-title">Checkout</h1>
 
         <div className="checkout-content">

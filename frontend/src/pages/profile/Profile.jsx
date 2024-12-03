@@ -4,6 +4,7 @@ import PaymentCardModal from "../../components/paymentCardModal/PaymentCardModal
 import "../../styles/Profile.css";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -17,6 +18,12 @@ const Profile = () => {
     gender: "",
     country: "",
   });
+
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     fetchUserProfile();
@@ -105,6 +112,9 @@ const Profile = () => {
       <Navbar />
       <Header />
       <div className="profile-content">
+        <div>
+          <button onClick={handleBackClick}>Go Back</button>
+        </div>
         <h1 className="profile-header">My Profile</h1>
 
         {/* Profile Overview */}
