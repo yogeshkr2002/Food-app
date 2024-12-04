@@ -6,11 +6,10 @@ import AddressModal from "../../components/addressModal/AddressModal";
 import { useCart } from "../../context/CartContext";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
-<<<<<<< HEAD
+
 import Footer from "../../components/footer/Footer";
-=======
+
 import BASE_URL from "../../config";
->>>>>>> af685e1be190fadb5d2e68102eb82e544989ca0b
 
 function Checkout() {
   const [addresses, setAddresses] = useState([]);
@@ -171,7 +170,7 @@ function Checkout() {
               <button
                 className="proceedToPaymentBtn"
                 onClick={() => navigate("/payment")}
-                disabled={!selectedAddress}
+                // disabled={!selectedAddress}
               >
                 Proceed to Payment →
               </button>

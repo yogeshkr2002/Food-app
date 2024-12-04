@@ -96,6 +96,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 .payment-summary h4 {
   font-size: 20px;
@@ -116,4 +117,5 @@
   border-radius: 20px;
   cursor: pointer;
   font-size: 20px;
+  margin-top: 20px;
 }

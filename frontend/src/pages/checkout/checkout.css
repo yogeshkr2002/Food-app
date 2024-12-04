@@ -39,6 +39,7 @@
 
 .checkoutContainerBottom {
   width: 100%;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   margin-top: 5px;
